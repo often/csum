@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<meta name='description' content='Calculate the checksum of a file using JavaScript.' />
+		<meta name='viewport' content='width=device-width' />
+		<title>csum</title>
+		<style>
+			body {
+				padding: 0 20px;
+				max-width: 800px;
+				margin: auto;
+				word-break: break-word;
+			}
+
+			body, select, input {
+				font-family: sans-serif;
+			}
+
+			h1, p {
+				margin: 10px 0;
+			}
+		</style>
+		<script type='module'>
+			import { csum } from './csum.js'
+
+			const select = document.querySelector('select')
+			const input = document.querySelector('input')
+
+			const handle = async () =>
+			{
+				for (const file of input.files)
+				{
+					const code = document.createElement('code')
+					const checksum = await csum(file, select.value)
+					code.textContent = checksum
+					const p = document.createElement('p')
+					p.textContent = `${file.name}'s ${select.value} checksum is: `
+					p.append(code)
+					document.body.append(p)
+				}
+			}
+
+			select.addEventListener('change', handle)
+			input.addEventListener('change', handle)
+		</script>
+	</head>
+	<body>
+		<h1>csum</h1>
+		<p>Calculate the checksum of a file using JavaScript.</p>
+		<label>
+			Algorithm:
+			<select>
+				<option>SHA-1</option>
+				<option selected>SHA-256</option>
+				<option>SHA-384</option>
+				<option>SHA-512</option>
+			</select>
+		</label>
+		<input type='file' multiple />
+	</body>
+</html>
