@@ -13,7 +13,7 @@ Once called, if everything is ok, it returns a string (the calculated file hash 
 <input type='file' />
 ```
 ```js
-import { csum } from './csum.js'
+import { csum } from 'https://csum.sany.one/csum.js'
 
 const input = document.querySelector('input')
 
