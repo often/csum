@@ -1,4 +1,4 @@
-# [csum](https://csum.sany.one)
+# [csum](https://often.github.io/csum/)
 Calculate the checksum of a file using JavaScript.
 
 ## API documentation
@@ -13,7 +13,7 @@ Once called, if everything is ok, it returns a string (the calculated file hash 
 <input type='file' />
 ```
 ```js
-import { csum } from 'https://csum.sany.one/csum.js'
+import { csum } from 'https://often.github.io/csum/csum.js'
 
 const input = document.querySelector('input')
 
